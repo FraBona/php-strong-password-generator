@@ -1,7 +1,6 @@
 <?php 
 
-  function randomPassword(){
-    $lengthPassword = isset($_GET['password']) ? $_GET['password'] : null;
+  function randomPassword($lengthPassword){
     if($lengthPassword > 0){
       $wordSymbol = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.:*/%;';
       $wordSymbol = str_shuffle($wordSymbol);
