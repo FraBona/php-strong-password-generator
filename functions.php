@@ -1,12 +1,14 @@
 <?php 
 
   function randomPassword(){
-    $lengthPassword = $_GET['password'];
+    $lengthPassword = isset($_GET['password']) ? $_GET['password'] : null;
+    if($lengthPassword > 0){
+      $wordSymbol = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.:*/%;';
+      $wordSymbol = str_shuffle($wordSymbol);
+      $randomPassword = substr($wordSymbol, 0, $lengthPassword);
 
-    $wordSymbol = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.:*/%;';
-    $wordSymbol = str_shuffle($wordSymbol);
-    $randomPassword = substr($wordSymbol, 0, $lengthPassword);
+      return str_shuffle($randomPassword);
+    }
 
-    return str_shuffle($randomPassword);
   }
 ?>
